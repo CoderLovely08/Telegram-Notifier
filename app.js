@@ -7,7 +7,6 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-// app.use()
 // Home route
 app.get("/", (req, res) => {
   APIResponse.success(res, null, "Welcome to Telegram Notifier");
