@@ -2,7 +2,9 @@
 
 ## Overview
 
-Telegram Notifier is a Node.js application that allows users to send messages to a Telegram chat using a bot. This project utilizes Express.js for the server framework and Axios for making HTTP requests to the Telegram API.
+Telegram Notifier is a Node.js-based feature module that can be easily integrated into your existing projects to enable message sending to a Telegram chat via a bot. It provides a simple interface for utilizing Telegram as a reporting, alerting, or community notification tool — perfect for use cases like personal alerts, error reporting, or broadcasting messages to a group or channel.
+
+Built with Express.js for routing and Axios for Telegram Bot API communication, Telegram Notifier helps developers quickly plug Telegram messaging capabilities into their applications.
 
 ## Features
 
