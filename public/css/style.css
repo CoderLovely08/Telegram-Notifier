@@ -49,11 +49,88 @@ main {
     }
 }
 
+/* Tablet and mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header {
+        padding: 30px 20px;
+        margin-bottom: 30px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    section {
+        padding: 20px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    main {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    section {
+        padding: 15px;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    h3 {
+        font-size: 1.1rem;
+    }
+    
+    main {
+        gap: 15px;
+    }
+    
+    .endpoint {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+}
+
 section {
     background-color: white;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow-x: hidden;
 }
 
 h2 {
@@ -100,6 +177,7 @@ h4 {
     border: 1px solid #e0e0e0;
     border-radius: 6px;
     overflow: hidden;
+    max-width: 100%;
 }
 
 .code-header {
@@ -114,13 +192,45 @@ pre {
     background-color: #f8f9fa;
     padding: 15px;
     overflow-x: auto;
+    overflow-y: hidden;
     margin: 0;
+    white-space: pre;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 code {
     font-family: 'Courier New', monospace;
     font-size: 0.9rem;
     color: #2c3e50;
+}
+
+/* Mobile responsiveness for code blocks */
+@media (max-width: 768px) {
+    pre {
+        padding: 10px;
+        font-size: 0.8rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        max-width: 100%;
+    }
+    
+    code {
+        font-size: 0.8rem;
+        white-space: pre;
+    }
+    
+    .code-block {
+        margin-bottom: 15px;
+        overflow: hidden;
+        max-width: 100%;
+    }
+    
+    .code-header {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
 }
 
 .response-example {
