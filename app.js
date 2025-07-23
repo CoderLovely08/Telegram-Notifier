@@ -8,6 +8,7 @@ import { sendTestTelegramMessage } from "./service/testNotifier.service.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Set up EJS
@@ -57,10 +58,10 @@ app.use((error, req, res, next) => {
 });
 
 // Start server
-app.listen(3000, (error) => {
+app.listen(PORT, (error) => {
   if (error) {
     console.log(error);
     return;
   }
-  console.log("Server started on port 3000");
+  console.log(`Server started on port ${PORT}`);
 });
