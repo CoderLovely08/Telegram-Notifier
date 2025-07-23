@@ -1,15 +1,29 @@
 import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 import { APIResponse } from "./service/core/CustomResponse.js";
 import { sendTelegramMessage } from "./service/notifier.service.js";
+import { sendTestTelegramMessage } from "./service/testNotifier.service.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
-app.use(express.json());
 
+// Set up EJS
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Body parsing middleware
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Home route
+// Home route - render the documentation page
 app.get("/", (req, res) => {
-  APIResponse.success(res, null, "Welcome to Telegram Notifier");
+  res.render('index');
 });
 
 // Send message route
@@ -21,6 +35,18 @@ app.post("/send", async (req, res) => {
     APIResponse.success(res, null, "Message sent successfully");
   } catch (error) {
     APIResponse.error(res, error.message);
+  }
+});
+
+// Test endpoint - accepts custom bot token and chat ID
+app.post("/test", async (req, res) => {
+  try {
+    const { botToken, chatId, message } = req.body;
+    const result = await sendTestTelegramMessage(botToken, chatId, message);
+
+    APIResponse.success(res, result, "Message sent successfully");
+  } catch (error) {
+    APIResponse.error(res, error.message, error.statusCode || 500);
   }
 });
 
