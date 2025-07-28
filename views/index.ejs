@@ -1,48 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Telegram Notifier - API Documentation & Playground</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <h1>Telegram Notifier API</h1>
-            <p class="subtitle">Test and explore the Telegram message notification service</p>
-        </header>
+      <header>
+        <h1>Telegram Notifier API</h1>
+        <p class="subtitle">
+          Test and explore the Telegram message notification service
+        </p>
 
-        <main>
-            <!-- API Documentation Section -->
-            <section class="documentation">
-                <h2>API Documentation</h2>
-                
-                <div class="endpoint-info">
-                    <h3>Send Message Endpoint</h3>
-                    <div class="endpoint-details">
-                        <code class="endpoint">POST /send</code>
-                        <p>Send a message to a Telegram chat using the configured bot.</p>
-                    </div>
-                </div>
+        <!-- Link to documentation -->
+        <a
+          href="https://github.com/CoderLovely08/Telegram-Notifier"
+          class="docs-link"
+          >View Documentation</a
+        >
+      </header>
 
-                <div class="code-examples">
-                    <h3>Example Requests</h3>
-                    
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span>cURL</span>
-                        </div>
-                        <pre><code>curl -X POST http://localhost:3000/send \
+      <main>
+        <!-- API Documentation Section -->
+        <section class="documentation">
+          <h2>API Documentation</h2>
+
+          <div class="endpoint-info">
+            <h3>Send Message Endpoint</h3>
+            <div class="endpoint-details">
+              <code class="endpoint">POST /send</code>
+              <p>Send a message to a Telegram chat using the configured bot.</p>
+            </div>
+          </div>
+
+          <div class="code-examples">
+            <h3>Example Requests</h3>
+
+            <div class="code-block">
+              <div class="code-header">
+                <span>cURL</span>
+              </div>
+              <pre><code>curl -X POST http://localhost:3000/send \
   -H "Content-Type: application/json" \
   -d '{"message": "Hello from Telegram Notifier!"}'</code></pre>
-                    </div>
+            </div>
 
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span>JavaScript (Fetch)</span>
-                        </div>
-                        <pre><code>fetch('http://localhost:3000/send', {
+            <div class="code-block">
+              <div class="code-header">
+                <span>JavaScript (Fetch)</span>
+              </div>
+              <pre><code>fetch('http://localhost:3000/send', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
@@ -53,161 +62,187 @@
 })
 .then(response => response.json())
 .then(data => console.log(data));</code></pre>
-                    </div>
+            </div>
 
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span>Python (Requests)</span>
-                        </div>
-                        <pre><code>import requests
+            <div class="code-block">
+              <div class="code-header">
+                <span>Python (Requests)</span>
+              </div>
+              <pre><code>import requests
 
 response = requests.post('http://localhost:3000/send', 
     json={'message': 'Hello from Telegram Notifier!'})
     
 print(response.json())</code></pre>
-                    </div>
-                </div>
+            </div>
+          </div>
 
-                <div class="response-format">
-                    <h3>Response Format</h3>
-                    
-                    <div class="response-example">
-                        <h4>Success Response</h4>
-                        <pre><code>{
+          <div class="response-format">
+            <h3>Response Format</h3>
+
+            <div class="response-example">
+              <h4>Success Response</h4>
+              <pre><code>{
     "success": true,
     "data": null,
     "message": "Message sent successfully"
 }</code></pre>
-                    </div>
+            </div>
 
-                    <div class="response-example">
-                        <h4>Error Response</h4>
-                        <pre><code>{
+            <div class="response-example">
+              <h4>Error Response</h4>
+              <pre><code>{
     "success": false,
     "message": "Error description"
 }</code></pre>
-                    </div>
-                </div>
-            </section>
+            </div>
+          </div>
+        </section>
 
-            <!-- Test Playground Section -->
-            <section class="playground">
-                <h2>Test Playground</h2>
-                <p class="info-text">Test the API with your own Telegram bot credentials</p>
-                
-                <div class="privacy-notice">
-                    <strong>🔒 Privacy Notice:</strong> Your bot token and chat ID are never saved or logged. All requests are processed in memory only and discarded immediately after use. This playground is completely safe to use.
-                </div>
+        <!-- Test Playground Section -->
+        <section class="playground">
+          <h2>Test Playground</h2>
+          <p class="info-text">
+            Test the API with your own Telegram bot credentials
+          </p>
 
-                <form id="testForm" class="test-form">
-                    <div class="form-group">
-                        <label for="botToken">Bot Token</label>
-                        <input 
-                            type="text" 
-                            id="botToken" 
-                            name="botToken" 
-                            placeholder="123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11" 
-                            required
-                        >
-                        <small>Get your bot token from <a href="https://t.me/botfather" target="_blank">@BotFather</a></small>
-                    </div>
+          <div class="privacy-notice">
+            <strong>🔒 Privacy Notice:</strong> Your bot token and chat ID are
+            never saved or logged. All requests are processed in memory only and
+            discarded immediately after use. This playground is completely safe
+            to use.
+          </div>
 
-                    <div class="form-group">
-                        <label for="chatId">Chat ID</label>
-                        <input 
-                            type="text" 
-                            id="chatId" 
-                            name="chatId" 
-                            placeholder="-1001234567890" 
-                            required
-                        >
-                        <small>
-                            To get your chat ID:
-                            <br>• <strong>Method 1:</strong> Send a message to your bot, then <span id="getUpdatesLink">visit the getUpdates endpoint</span>
-                            <br>• <strong>Method 2:</strong> Use helper bots:
-                            <br>&nbsp;&nbsp;- Personal chat: Message <a href="https://t.me/userinfobot" target="_blank">@userinfobot</a>
-                            <br>&nbsp;&nbsp;- Groups: Add <a href="https://t.me/getidsbot" target="_blank">@getidsbot</a> to your group
-                            <br>&nbsp;&nbsp;- Channels: Forward a message to <a href="https://t.me/getidsbot" target="_blank">@getidsbot</a>
-                        </small>
-                    </div>
+          <form id="testForm" class="test-form">
+            <div class="form-group">
+              <label for="botToken">Bot Token</label>
+              <input
+                type="text"
+                id="botToken"
+                name="botToken"
+                placeholder="123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
+                required
+              />
+              <small
+                >Get your bot token from
+                <a href="https://t.me/botfather" target="_blank"
+                  >@BotFather</a
+                ></small
+              >
+            </div>
 
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea 
-                            id="message" 
-                            name="message" 
-                            rows="4" 
-                            placeholder="Enter your test message here..."
-                            required
-                        ></textarea>
-                    </div>
+            <div class="form-group">
+              <label for="chatId">Chat ID</label>
+              <input
+                type="text"
+                id="chatId"
+                name="chatId"
+                placeholder="-1001234567890"
+                required
+              />
+              <small>
+                To get your chat ID:
+                <br />• <strong>Method 1:</strong> Send a message to your bot,
+                then
+                <span id="getUpdatesLink">visit the getUpdates endpoint</span>
+                <br />• <strong>Method 2:</strong> Use helper bots:
+                <br />&nbsp;&nbsp;- Personal chat: Message
+                <a href="https://t.me/userinfobot" target="_blank"
+                  >@userinfobot</a
+                >
+                <br />&nbsp;&nbsp;- Groups: Add
+                <a href="https://t.me/getidsbot" target="_blank">@getidsbot</a>
+                to your group <br />&nbsp;&nbsp;- Channels: Forward a message to
+                <a href="https://t.me/getidsbot" target="_blank">@getidsbot</a>
+              </small>
+            </div>
 
-                    <button type="submit" class="submit-button">Send Test Message</button>
-                </form>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Enter your test message here..."
+                required
+              ></textarea>
+            </div>
 
-                <div id="response" class="response-container" style="display: none;">
-                    <h3>Response</h3>
-                    <pre><code id="responseContent"></code></pre>
-                </div>
-            </section>
-        </main>
+            <button type="submit" class="submit-button">
+              Send Test Message
+            </button>
+          </form>
+
+          <div id="response" class="response-container" style="display: none">
+            <h3>Response</h3>
+            <pre><code id="responseContent"></code></pre>
+          </div>
+        </section>
+      </main>
     </div>
 
     <script>
-        // Update getUpdates link dynamically
-        document.getElementById('botToken').addEventListener('input', (e) => {
-            const token = e.target.value.trim();
-            const linkElement = document.getElementById('getUpdatesLink');
-            
-            if (token && token.includes(':')) {
-                const url = `https://api.telegram.org/bot${token}/getUpdates`;
-                linkElement.innerHTML = `<a href="${url}" target="_blank" rel="noopener">click here to see your chat ID</a>`;
-            } else {
-                linkElement.textContent = 'visit the getUpdates endpoint';
-            }
-        });
+      // Update getUpdates link dynamically
+      document.getElementById("botToken").addEventListener("input", (e) => {
+        const token = e.target.value.trim();
+        const linkElement = document.getElementById("getUpdatesLink");
 
-        document.getElementById('testForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(e.target);
-            const botToken = formData.get('botToken');
-            const chatId = formData.get('chatId');
-            const message = formData.get('message');
-            
-            const responseContainer = document.getElementById('response');
-            const responseContent = document.getElementById('responseContent');
-            
-            // Show loading state
-            responseContainer.style.display = 'block';
-            responseContent.textContent = 'Sending message...';
-            
-            try {
-                const response = await fetch('/test', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        botToken,
-                        chatId,
-                        message
-                    })
-                });
-                
-                const data = await response.json();
-                responseContent.textContent = JSON.stringify(data, null, 2);
-                
-                // Add success/error class for styling
-                responseContainer.className = 'response-container ' + (data.success ? 'success' : 'error');
-            } catch (error) {
-                responseContent.textContent = JSON.stringify({
-                    success: false,
-                    message: error.message
-                }, null, 2);
-                responseContainer.className = 'response-container error';
-            }
+        if (token && token.includes(":")) {
+          const url = `https://api.telegram.org/bot${token}/getUpdates`;
+          linkElement.innerHTML = `<a href="${url}" target="_blank" rel="noopener">click here to see your chat ID</a>`;
+        } else {
+          linkElement.textContent = "visit the getUpdates endpoint";
+        }
+      });
+
+      document
+        .getElementById("testForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const formData = new FormData(e.target);
+          const botToken = formData.get("botToken");
+          const chatId = formData.get("chatId");
+          const message = formData.get("message");
+
+          const responseContainer = document.getElementById("response");
+          const responseContent = document.getElementById("responseContent");
+
+          // Show loading state
+          responseContainer.style.display = "block";
+          responseContent.textContent = "Sending message...";
+
+          try {
+            const response = await fetch("/test", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                botToken,
+                chatId,
+                message,
+              }),
+            });
+
+            const data = await response.json();
+            responseContent.textContent = JSON.stringify(data, null, 2);
+
+            // Add success/error class for styling
+            responseContainer.className =
+              "response-container " + (data.success ? "success" : "error");
+          } catch (error) {
+            responseContent.textContent = JSON.stringify(
+              {
+                success: false,
+                message: error.message,
+              },
+              null,
+              2
+            );
+            responseContainer.className = "response-container error";
+          }
         });
     </script>
-</body>
+  </body>
 </html>
